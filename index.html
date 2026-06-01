@@ -148,11 +148,11 @@
     <div class="right">
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="showForm('login')">
+            <button class="tab-btn active" onclick="showForm('login', this)">
                 Login
             </button>
 
-            <button class="tab-btn" onclick="showForm('signup')">
+            <button class="tab-btn" onclick="showForm('signup', this)">
                 Sign Up
             </button>
         </div>
@@ -228,7 +228,7 @@
 <script>
 
     /* Switch Forms */
-    function showForm(formId){
+    function showForm(formId, element){
 
         document.querySelectorAll('.form-box')
             .forEach(box => box.classList.remove('active'));
@@ -239,7 +239,9 @@
         document.querySelectorAll('.tab-btn')
             .forEach(btn => btn.classList.remove('active'));
 
-        event.target.classList.add('active');
+        if (element) {
+            element.classList.add('active');
+        }
     }
 
     /* Show Message */
